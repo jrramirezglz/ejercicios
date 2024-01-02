@@ -26,3 +26,5 @@ lista.sort() #NO GUARDA LA LISTA ORDENADA EN NINGUN LADO NO SE PUEDE ASIGNAR
 print(lista)#['a', 'b', 'c', 'd']
 lista.reverse()
 print(lista)#['d', 'c', 'b', 'a']
+ordenada =sorted(lista)
+print(ordenada)

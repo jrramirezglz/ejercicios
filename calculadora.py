@@ -23,8 +23,8 @@ class calculadora:
             v3 = self.v1 - self.v2
             return print('el resultado de la resta es ' , v3)
         elif  operacion == operaciones.MULTIPLICACION:
-            return print('el resultado de la multiplicacion es ' , v3)
             v3 = self.v1 * self.v2
+            return print('el resultado de la multiplicacion es ' , v3)
         elif  operacion == operaciones.DIVISION:
             try:
                 v3 = self.v1 / self.v2
