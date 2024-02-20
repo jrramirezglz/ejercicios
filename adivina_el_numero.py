@@ -27,11 +27,11 @@ while(intento < 8):
         respuesta_usuario=int(input("Dime un numero \n"))
         if(respuesta_usuario< 1 and respuesta_usuario > 100):
             print('Numero invalido!!! El numero debe de ser entre 1 y 100')
-        if(respuesta_usuario < respuesta):
+        elif(respuesta_usuario < respuesta):
             print("Respuesta Incorrecta!!! El numero es mayor")
-        if(respuesta_usuario > respuesta):
+        elif(respuesta_usuario > respuesta):
             print("Respuesta Incorrecta!!! El numero es menor")
-        if(respuesta_usuario==respuesta):
+        else:
             print(f"Respuesta correcta!!! El numero es {respuesta}\n Solo te tomo {intento} intentos")
             break
 if(respuesta_usuario != respuesta):
