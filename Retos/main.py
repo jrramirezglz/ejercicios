@@ -1,5 +1,5 @@
-from calculadora import calculadora
-from calculadora import operaciones
+from Retos.calculadora import calculadora
+from Retos.calculadora import operaciones
 
 for operacion in operaciones:
     print(f"{operacion.name} { operacion.value}\t") 
