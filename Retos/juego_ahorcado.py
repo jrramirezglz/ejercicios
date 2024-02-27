@@ -28,8 +28,9 @@ def elegir_palabra():
     palabra_secreta = list(palabra_secreta)
     for index in palabra_secreta:
         nueva_palabra.append("-")
-    print(f'Hola!! Vamos a jugar EL JUEGO DEL AHORCADO \n La palabra' 
-          f'que tienes que adivinar es \n {nueva_palabra}')
+    print(f'Hola!! Vamos a jugar EL JUEGO DEL AHORCADO \n' 
+          f'La palabra que tienes que adivinar es \n {nueva_palabra}\n'
+          f'Tienes solo 8 intentos,\n\n BUENA SUERTE')
     return palabra_secreta,nueva_palabra
 
 def elegir_letra():
@@ -38,6 +39,7 @@ def elegir_letra():
 
 def verificar_letra(palabra,secreto, letra):
     ganaste = 0
+    error = 0
     if letra in palabra:
         print("SIII")
         posiciones_a = [posicion for posicion, letras in enumerate(palabra) if letras == letra]
@@ -46,20 +48,21 @@ def verificar_letra(palabra,secreto, letra):
         print(secreto)
     else:
         print("NOOO!!")
+        error = 1
     if '-' not in secreto:
         ganaste = 1
-    return ganaste
+    return ganaste ,error
 
 vidas = 8
 ganaste = 0
 palabra,secreto = elegir_palabra()
 while(vidas>0):
     letra = elegir_letra()
-    ganaste = verificar_letra(palabra, secreto, letra)
-    if ganaste == 0:
+    ganaste ,error= verificar_letra(palabra, secreto, letra)
+    if ganaste == 0 and error == 1:
         vidas-=1
         print(f'Te quedan {vidas} intentos')
-    else:
+    elif ganaste == 1 and error == 0:
         print("GANASTE!!!")
         vidas = 0
 if(vidas==0 and ganaste == 0):
