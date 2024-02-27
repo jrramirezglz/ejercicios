@@ -36,22 +36,35 @@ def elegir_letra():
     letra = input("dame una letra \n")
     return letra
 
-def verificar_letra(palabra,secretro, letra):
+def verificar_letra(palabra,secreto, letra):
+    ganaste = 0
     if letra in palabra:
         print("SIII")
-        for index in palabra:
-            print(index)
-            if letra == index:
-                posicion = palabra.index(letra)
-                secretro[posicion]=letra
-        print(secretro)
+        posiciones_a = [posicion for posicion, letras in enumerate(palabra) if letras == letra]
+        for pos in posiciones_a:
+            secreto[pos] = letra
+        print(secreto)
     else:
-        print("NOOO")
+        print("NOOO!!")
+    if '-' not in secreto:
+        ganaste = 1
+    return ganaste
+
 vidas = 8
+ganaste = 0
 palabra,secreto = elegir_palabra()
 while(vidas>0):
     letra = elegir_letra()
-    verificar_letra(palabra, secreto, letra)
-    vidas-=1
-if(vidas==0):
-    print('Lo siento, perdiste')
+    ganaste = verificar_letra(palabra, secreto, letra)
+    if ganaste == 0:
+        vidas-=1
+        print(f'Te quedan {vidas} intentos')
+    else:
+        print("GANASTE!!!")
+        vidas = 0
+if(vidas==0 and ganaste == 0):
+    print('Lo siento, perdiste\n')
+    string = ''.join(palabra)
+    print(f'La palabra secreta era {string}')
+else:
+    print('Felicidades')
