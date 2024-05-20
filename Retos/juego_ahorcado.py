@@ -19,7 +19,8 @@ palabra o no, para verificar si ha ganado o no, etc.
 ordenadamente.
 """
 from random import *
-
+from os import system
+import time
 def elegir_palabra():
     palabra_secreta = []
     nueva_palabra = []
@@ -71,3 +72,5 @@ if(vidas==0 and ganaste == 0):
     print(f'La palabra secreta era {string}')
 else:
     print('Felicidades')
+time.sleep(5)
+system('cls')
